@@ -16,6 +16,11 @@ export const create = mutation({
     orderId: v.string(),
     customerName: v.string(),
     customerEmail: v.string(),
+    shippingName: v.optional(v.string()),
+    shippingPhone: v.optional(v.string()),
+    shippingZipCode: v.optional(v.string()),
+    shippingAddress: v.optional(v.string()),
+    shippingAddressDetail: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const id = await ctx.db.insert("orders", {
@@ -26,6 +31,11 @@ export const create = mutation({
       orderId: args.orderId,
       customerName: args.customerName,
       customerEmail: args.customerEmail,
+      shippingName: args.shippingName,
+      shippingPhone: args.shippingPhone,
+      shippingZipCode: args.shippingZipCode,
+      shippingAddress: args.shippingAddress,
+      shippingAddressDetail: args.shippingAddressDetail,
     });
     return id;
   },

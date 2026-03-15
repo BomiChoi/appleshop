@@ -33,5 +33,10 @@ export default defineSchema({
     orderId: v.string(),
     customerName: v.string(),
     customerEmail: v.string(),
+    shippingName: v.optional(v.string()),
+    shippingPhone: v.optional(v.string()),
+    shippingZipCode: v.optional(v.string()),
+    shippingAddress: v.optional(v.string()),
+    shippingAddressDetail: v.optional(v.string()),
   }).index("by_order_id", ["orderId"]),
 });
